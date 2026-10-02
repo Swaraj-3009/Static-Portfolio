@@ -2,6 +2,21 @@ const $ = (s) => document.querySelector(s);
 const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e; };
 const tags = (a) => a.map(t => `<span class="tag">${t}</span>`).join("");
 
+const themeButtons = [...document.querySelectorAll(".theme-btn")];
+const applyTheme = (theme) => {
+  document.body.setAttribute("data-theme", theme);
+  themeButtons.forEach((btn) => {
+    const active = btn.dataset.theme === theme;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", String(active));
+  });
+  localStorage.setItem("portfolio-theme", theme);
+};
+
+const savedTheme = localStorage.getItem("portfolio-theme") || "light";
+applyTheme(savedTheme);
+themeButtons.forEach((btn) => btn.addEventListener("click", () => applyTheme(btn.dataset.theme)));
+
 // links
 $("#gh").href = $("#gh2").href = SITE.github;
 $("#li").href = $("#li2").href = SITE.linkedin;

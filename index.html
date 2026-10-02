@@ -13,7 +13,14 @@
 <body>
 <header class="nav">
   <a class="brand" href="#top" aria-label="Home">Swaraj</a>
-  <button class="menu-btn" aria-label="Menu" aria-expanded="false">Menu</button>
+  <div class="header-actions">
+    <div class="theme-switcher" aria-label="Theme switcher">
+      <button class="theme-btn active" data-theme="light" type="button" aria-pressed="true">Light</button>
+      <button class="theme-btn" data-theme="dark" type="button" aria-pressed="false">Dark</button>
+      <button class="theme-btn" data-theme="tech" type="button" aria-pressed="false">Tech</button>
+    </div>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">Menu</button>
+  </div>
   <nav id="nav-links">
     <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
     <a href="#education">Education</a><a href="#contact">Contact</a>
